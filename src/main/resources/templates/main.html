@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <a href="/">Main</a>
+    <title th:text="${title}" />
+</head>
+<body>
+<table>
+    <tbody>
+    <div th:each="i : ${startPage}">
+        <tr>
+            <td th:text="${i}" />
+            <form th:action="'/getcurrentgif/' + ${i}" method="get">
+                <td><button type="submit" class="btn btn-success">Go</button></td>
+            </form>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<br>
+<div>
+    <p style="text-indent:0px" th:text="${getTag}" />
+    <img th:src="${getGif}"/>
+</div>
+</body>
+</html>
